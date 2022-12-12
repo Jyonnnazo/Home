@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Jyonn謎</title>
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+<script>
+var banngou = 51;
+</script>
+<form oninput="banngou = Number(banngou100.value * 100) + Number(banngou10.value * 10) + Number(banngou1.value * 1);">
+<p>問題番号を選択してください</p>
+<select name="banngou100">
+<option value="0" selected>0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+</select>
+<select name="banngou10">
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5" selected>5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+</select>
+<select name="banngou1">
+<option value="0">0</option>
+<option value="1" selected>1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+</select>
+<form name="checkform">
+<input type="button" class="send" value="決定" onClick="check()">
+</form>
+</form>
+
+<script>
+function check(){
+if(banngou==51){
+location.replace("https://100nazonext.github.io/100nazoNEXT/Q1clear.html");
+}
+else{
+alert("その番号の問題はありません")
+}
+}
+</script>
+</body>
+</html>
