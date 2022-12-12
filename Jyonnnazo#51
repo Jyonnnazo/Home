@@ -36,7 +36,7 @@ alert("hint3")
 else {alert("不正解です")}
 }
 </script>
-<a class="btn end" href="index.html"><p>× 閉じる</p></a><a class="btn hint" href="Q51hint.html"><p>ヒントを見る</p></a>
+<a class="btn end" href="index.html"><p>× 閉じる</p></a>
 </div>
 </body>
 </html>
