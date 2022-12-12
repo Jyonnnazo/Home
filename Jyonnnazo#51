@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Jyonn謎#51</title>
+<link rel="stylesheet" href="styleQ.css">
+</head>
+<body>
+<script type="text/javascript" src="https://ad.xdomain.ne.jp/js/server-php.js"></script>
+<div class="number aa">
+<p>Q51</p>a
+</div>
+<div class="nazo">
+<img 
+src="https://lh4.googleusercontent.com/HWG4MpcLfNrMuVDAyFCzvVmU9X_7dEv_d06w8og_DsYrLaUQsl0CEyjyzwRw6hvbBXHAn0Mrpz0TQYzkdefieyxyY-SSIsnFSo6lmTKFFqehbKxhSLoHg7XufUTbYkSxiw=w1280">
+</div>
+<div class="command">
+<form name="checkform">
+<input type="text" class="ans" name="answer" placeholder="解答を入力">
+<input type="button" class="send" value="送信" onClick="check()">
+</form>
+<script>
+function check(){
+const popup = document.getElementById("popup")
+if (document.checkform.answer.value=="-1"){
+location.replace("https://100nazonext.github.io/100nazoNEXT/Q1clear.html");}
+else if(document.checkform.answer.value=="h1"){
+alert("hint1")
+}
+else if(document.checkform.answer.value=="h2"){
+alert("hint2")
+}
+else if(document.checkform.answer.value=="h3"){
+alert("hint3")
+}
+else {alert("不正解です")}
+}
+</script>
+<a class="btn end" href="index.html"><p>× 閉じる</p></a><a class="btn hint" href="Q51hint.html"><p>ヒントを見る</p></a>
+</div>
+</body>
+</html>
