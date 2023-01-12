@@ -1,69 +1,41 @@
-<!doctype html>
-<html lang="ja">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Jyonn謎</title>
-<link rel="stylesheet" href="home.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Jyonn謎正誤判定サイト</title>
 </head>
 <body>
+<script src="https://riversun.github.io/chatux/chatux.min.js"></script>
 <script>
-var banngou = 51;
-</script>
-<form oninput="banngou = Number(banngou100.value * 100) + Number(banngou10.value * 10) + Number(banngou1.value * 1);">
-<p>問題番号を選択してください</p>
-<select name="banngou100">
-<option value="0" selected>0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-</select>
-<select name="banngou10">
-<option value="0">0</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5" selected>5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-</select>
-<select name="banngou1">
-<option value="0">0</option>
-<option value="1" selected>1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-</select>
-<form name="checkform">
-<input type="button" class="send" value="決定" onClick="check()">
-</form>
-</form>
+    const chatux = new ChatUx();
 
-<script>
-function check(){
-if(banngou==51){
-location.replace("https://jyonnnazo.github.io/check/Q51.html");
-}
-else if(banngou==52){
-location.replace("https://sites.google.com/view/jyonnnazo-check-anser/jyonnnazo52")
-}
-else{
-alert("その番号の問題はありません")
-}
-}
+    //ChatUXの初期化パラメータ
+ const initParam =
+        {
+            renderMode: 'auto',
+            api: {
+                //echo chat server
+                endpoint: 'https://script.google.com/macros/s/AKfycbxwPW3V_toE9_cnpztF8dF2MCEMi_ZaB-C29IvDxsne_qLFFYYCzahXIHt_AIMiRPcEUA/exec',
+                method: 'GET',
+                dataType: 'jsonp'
+            },
+            bot: {
+                botPhoto: 'https://pbs.twimg.com/profile_images/1607312384703746048/U5KykLXk_400x400.jpg',
+                humanPhoto: null,
+                widget: {
+                    sendLabel: '送信',
+                    placeHolder: '解答を入力してください'
+                }
+            },
+            window: {
+                title: 'Jyonn謎正誤判定',
+                infoUrl: 'https://github.com/riversun/chatux'
+            }
+        };
+    chatux.init(initParam);
+    chatux.start(true);
+
 </script>
 </body>
 </html>
