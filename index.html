@@ -33,17 +33,91 @@
             window: {
                 title: 'Jyonn謎正誤判定',
                 infoUrl: 'https://twitter.com/Jyonn_nazo'
-                size: {
-                    width: 350,//ウィンドウの幅
-                    height: 500,//ウィンドウの高さ
-                    minWidth: 300,//ウィンドウの最小幅
-                    minHeight: 300,//ウィンドウの最小高さ
-                    titleHeight: 50//ウィンドウのタイトルバー高さ
-                },
+            size: {
+                width: 350,//ウィンドウの幅
+            height: 500,//ウィンドウの高さ
+            minWidth: 300,//ウィンドウの最小幅
+            minHeight: 300,//ウィンドウの最小高さ
+            titleHeight: 50//ウィンドウのタイトルバー高さ
+        },
+        appearance: {
+            //ウィンドウのボーダースタイル
+            border: {
+                shadow: '2px 2px 10px  rgba(0, 0, 0, 0.5)',//影
+                width: 0,//ボーダーの幅
+                radius: 6//ウィンドウの角丸半径
+            },
+            //ウィンドウのタイトルバーのスタイル
+            titleBar: {
+                fontSize: 14,
+                color: 'white',
+                background: 'black',
+                leftMargin: 40,
+                height: 40,
+                buttonWidth: 36,
+                buttonHeight: 16,
+                buttonColor: 'white',
+                buttons: [
+                    //閉じるボタン
+                    {
+                        //閉じるボタンのアイコン(fontawesome)
+                        fa: 'fas fa-times',
+                        name: 'hideButton',
+                        visible: true  //true:表示する
+                    }
+                ],
+                buttonsOnLeft: [
+                    //左上のinforUrlボタン
+                    {
+                        fa: 'fas fa-comment-alt',//specify font awesome icon
+                        name: 'info',
+                        visible: true  //true:表示する
+                    }
+                ],
+            },
+        }
+    },
+    //チャット起動ボタンの位置
+    wakeupButton: {
+        right: 20,
+        bottom: 20,
+        size: 60,
+        fontSize: 25//フォントサイズ
+    },
+    //イベントのコールバックメソッド
+    methods: {
+        onChatWindowCreate: (win) => {
+            //チャットUIが生成された時
+        },
+        onChatWindowPause: (win) => {
+            //チャットUIが閉じられた時
+        },
+        onChatWindowResume: (win) => {
+            //チャットUIが復帰した時
+        },
+        onUserInput: (userInputText) => {
+            //ユーザーがテキストを入力したとき
+            //(テキストをインターセプトする)
+            console.log('#onUserInput userInputText=' + userInputText);
+            if (userInputText === 'おしまい') {
+                //チャットUIを終了する
+                chatux.dispose();
+                //consumed=trueで返すと、テキストはサーバーには送信されない
+                const consumed = true;
+                return consumed;
             }
-        };
-    chatux.init(initParam);
-    chatux.start(true);
+        },
+        onServerResponse: (response) => {
+            //チャットサーバーのレスポンスを受け取った時
+            //レンダリング前なのでresponseを編集するとレンダリング結果を変更できる
+            console.log('#onServerResponse response=' + JSON.stringify(response));
+            return response;
+        }
+    }
+};
+chatux.init(initParam);
+//trueを指定すると、チャットUIを自動的に開く
+chatux.start(true);
 
 </script>
 </body>
