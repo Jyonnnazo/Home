@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Jyonn謎正誤判定サイト</title>
-</head>
-<body>
-<script src="https://riversun.github.io/chatux/chatux.min.js"></script>
-<script>
+  </head>
+  <body>
+    <script src="https://riversun.github.io/chatux/chatux.min.js"></script>
+    <script>
     const chatux = new ChatUx();
 
     //ChatUXの初期化パラメータ
@@ -32,12 +32,37 @@
             },
             window: {
                 title: 'Jyonn謎正誤判定',
-                infoUrl: 'https://twitter.com/Jyonn_nazo'
-            }
-        };
-    chatux.init(initParam);
-    chatux.start(true);
-
-</script>
-</body>
+                infoUrl: 'https://twitter.com/Jyonn_nazo',
+                
+                  appearance: {
+                    titleBar: {
+                      fontSize: 14,
+                      color: 'white',
+                      background: 'blue',
+                      buttonColor: 'white',
+                      buttons: [
+                        //閉じるボタン
+                        {
+                          //閉じるボタンのアイコン(fontawesome)
+                          fa: 'fas fa-times',
+                          name: 'hideButton',
+                          visible: false  //true:表示する
+                        }
+                      ],
+                      buttonsOnLeft: [
+                        //左上のinforUrlボタン
+                        {
+                          fa: 'fas fa-comment-alt',//specify font awesome icon
+                          name: 'info',
+                          visible: false  //true:表示する
+                        }
+                      ],
+                    },
+                  },
+              }
+          };
+      chatux.init(initParam);
+      chatux.start(true);
+  </script>
+  </body>
 </html>
